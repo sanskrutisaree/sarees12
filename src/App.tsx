@@ -283,6 +283,12 @@ function HomePage({ setPage, wishlist, toggleWishlist, addToCart }: {
       <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden bg-beige">
         <img
           src={heroStorefront}
+          onError={(e) => {
+            const target = e.currentTarget as HTMLImageElement
+            if (target && !target.src.endsWith('/hero-storefront.jpg')) {
+              target.src = '/hero-storefront.jpg'
+            }
+          }}
           alt="Sanskruti Sarees flagship showroom"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
